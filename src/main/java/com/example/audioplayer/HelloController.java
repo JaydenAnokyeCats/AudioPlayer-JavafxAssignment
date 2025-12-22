@@ -13,30 +13,72 @@ public class HelloController {
     @FXML
     private Text artistName;
     @FXML
+    private int checker;
+    @FXML
     private MediaPlayer mediaPlayer;
 
     @FXML
     protected void onPlayButtonClick(){
-        String path = "src/main/resources/audio/The Weeknd - The Hills (Lyrics).mp3";
-        Media sound = new Media(new File(path).toURI().toString());
-        mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
-        int checker = 0;
-
         if (checker == 0){
+            String path = "src/main/resources/audio/The Weeknd - The Hills (Lyrics).mp3";
+            audioPlay(path);
             songTitle.setText("The Hills");
             artistName.setText("The Weeknd");
+            ++checker;
         } else if (checker == 1){
+            mediaPlayer.stop();
+            String path = "src/main/resources/audio/Boyz II Men - On Bended Knee (Lyrics).mp3";
+            audioPlay(path);
             songTitle.setText("On Bended Knee");
             artistName.setText("Boyz II Men");
+            ++checker;
         } else if (checker == 2) {
+            mediaPlayer.stop();
+            String path = "src/main/resources/audio/Young Thug - Pipe Down (feat. Travis Scott) (Best Clean Version).mp3";
+            audioPlay(path);
             songTitle.setText("Pipe Down (Clean)");
             artistName.setText("Young Thug (ft. Travis Scott)");
+            ++checker;
+        } else if (checker == 3 ){
+            mediaPlayer.stop();
+            String path = "src/main/resources/audio/Lady Gaga - Judas (Lyrics).mp3";
+            audioPlay(path);
+            songTitle.setText("Judas");
+            artistName.setText("Lady Gaga");
+            ++checker;
+        } else if (checker == 4 ){
+            mediaPlayer.stop();
+            String path = "src/main/resources/audio/Tory Lanez - The Color Violet (Lyrics).mp3";
+            audioPlay(path);
+            songTitle.setText("The Color Violet");
+            artistName.setText("Tory Lanez");
+            ++checker;
+        } else if (checker == 5 ){
+            mediaPlayer.stop();
+            String path = "src/main/resources/audio/【フリーBGM】The Essence of Awakening【かっこいい・疾走感・戦闘】.mp3";
+            audioPlay(path);
+            songTitle.setText("The Essence of Awakening");
+            artistName.setText("かっこいい・疾走感・戦闘");
+            ++checker;
+        } else if (checker == 6 ){
+            mediaPlayer.stop();
+            checker = 0;
         }
     }
 
+    // Pause Button
     @FXML
-    protected void onPauseButtonClick() {
-
+    protected void onPauseButtonClick(){
+        mediaPlayer.pause();
+    }
+    @FXML
+    protected void onUnpauseButtonClick(){
+        mediaPlayer.play();
+    }
+    @FXML
+    protected void audioPlay(String path) {
+        Media sound = new Media(new File(path).toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
     }
 }
