@@ -19,6 +19,7 @@ public class HelloController {
 
     @FXML
     protected void onPlayButtonClick(){
+
         if (checker == 0){
             String path = "src/main/resources/audio/The Weeknd - The Hills (Lyrics).mp3";
             audioPlay(path);
@@ -61,6 +62,34 @@ public class HelloController {
             artistName.setText("かっこいい・疾走感・戦闘");
             ++checker;
         } else if (checker == 6 ){
+            mediaPlayer.stop();
+            String path = "src/main/resources/audio/Miley Cyrus - Wrecking Ball (Official Video).mp3";
+            audioPlay(path);
+            songTitle.setText("The Essence of Awakening");
+            artistName.setText("かっこいい・疾走感・戦闘");
+            ++checker;
+        } else if (checker == 7 ){
+            mediaPlayer.stop();
+            String path = "src/main/resources/audio/Nos Astra's BGM CAMELLIA - LIGHT IT UP (nawkoir's cut).mp3";
+            audioPlay(path);
+            songTitle.setText("The Essence of Awakening");
+            artistName.setText("かっこいい・疾走感・戦闘");
+            ++checker;
+        } else if (checker == 8 ){
+            mediaPlayer.stop();
+            String path = "src/main/resources/audio/Pierce The Veil - Pass The Nirvana (Official Music Video).mp3";
+            audioPlay(path);
+            songTitle.setText("The Essence of Awakening");
+            artistName.setText("かっこいい・疾走感・戦闘");
+            ++checker;
+        } else if (checker == 9 ){
+            mediaPlayer.stop();
+            String path = "src/main/resources/audio/Tory Lanez - Time.mp3";
+            audioPlay(path);
+            songTitle.setText("The Essence of Awakening");
+            artistName.setText("かっこいい・疾走感・戦闘");
+            ++checker;
+        }  else if (checker == 10 ){
             mediaPlayer.stop();
             checker = 0;
         }
