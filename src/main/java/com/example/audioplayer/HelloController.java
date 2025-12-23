@@ -6,34 +6,21 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 
 import java.io.File;
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
 
 public class HelloController {
     @FXML
     private Text songTitle;
     @FXML
     private Text artistName;
-    private int checker;
+    private int checker = 0;
     private String audPath = "src/main/resources/audio/";
     private MediaPlayer mediaPlayer;
 
     @FXML
     protected void onPlayButtonClick(){
-        LinkedHashMap<String, String> songList = new LinkedHashMap<>();
-        songList.put("The Weeknd - The Hills (Lyrics).mp3", "The Hills");
-        songList.put("Boyz II Men - On Bended Knee (Lyrics).mp3", "On Bended Knee");
-        songList.put("Young Thug - Pipe Down (feat. Travis Scott) (Best Clean Version).mp3", "Pipe Down (Clean)");
-        songList.put("Lady Gaga - Judas (Lyrics).mp3", "Judas");
-        songList.put("Tory Lanez - The Color Violet (Lyrics).mp3", "The Color Violet");
-        songList.put("【フリーBGM】The Essence of Awakening【かっこいい・疾走感・戦闘】.mp3", "The Essence of Awakening");
-        songList.put("Miley Cyrus - Wrecking Ball (Official Video).mp3", "Wrecking Ball");
-        songList.put("Nos Astra's BGM CAMELLIA - LIGHT IT UP (nawkoir's cut).mp3", "LIGHT IT UP (nawkoir's cut)");
-        songList.put("Pierce The Veil - Pass The Nirvana (Official Music Video).mp3", "Pass The Nirvana");
-        songList.put("Tory Lanez - Time.mp3", "Time");
-
+            listOfSongs(checker);
         
-
-
 
 //        if (checker == 0){
 //                String path = "src/main/resources/audio/The Weeknd - The Hills (Lyrics).mp3";
@@ -128,20 +115,54 @@ public class HelloController {
 
     @FXML
     protected void listOfSongs(int index){
-//        LinkedHashMap<String, String> songList = new LinkedHashMap<>();
-//        songList.put("The Weeknd - The Hills (Lyrics).mp3", "The Hills");
-//        songList.put("Boyz II Men - On Bended Knee (Lyrics).mp3", "On Bended Knee");
-//        songList.put("Young Thug - Pipe Down (feat. Travis Scott) (Best Clean Version).mp3", "Pipe Down (Clean)");
-//        songList.put("Lady Gaga - Judas (Lyrics).mp3", "Judas");
-//        songList.put("Tory Lanez - The Color Violet (Lyrics).mp3", "The Color Violet");
-//        songList.put("【フリーBGM】The Essence of Awakening【かっこいい・疾走感・戦闘】.mp3", "The Essence of Awakening");
-//        songList.put("Miley Cyrus - Wrecking Ball (Official Video).mp3", "Wrecking Ball");
-//        songList.put("Nos Astra's BGM CAMELLIA - LIGHT IT UP (nawkoir's cut).mp3", "LIGHT IT UP (nawkoir's cut)");
-//        songList.put("Pierce The Veil - Pass The Nirvana (Official Music Video).mp3", "Pass The Nirvana");
-//        songList.put("Tory Lanez - Time.mp3", "Time");
+        ArrayList<String> songList = new ArrayList<>();
+        ArrayList<String> songNames = new ArrayList<>();
+        ArrayList<String> artistNames = new ArrayList<>();
 
+        songList.add("The Weeknd - The Hills (Lyrics).mp3");
+        songNames.add("The Hills");
+        artistNames.add("The Weeknd");
 
+        songList.add("Boyz II Men - On Bended Knee (Lyrics).mp3");
+        songNames.add("On Bended Knee");
+        artistNames.add("Boyz II Men");
 
+        songList.add("Young Thug - Pipe Down (feat. Travis Scott) (Best Clean Version).mp3");
+        songNames.add("Pipe Down (Clean)");
+        artistNames.add("Young Thug");
 
+        songList.add("Lady Gaga - Judas (Lyrics).mp3");
+        songNames.add("Judas");
+        artistNames.add("Lady Gaga");
+
+        songList.add("Tory Lanez - The Color Violet (Lyrics).mp3");
+        songNames.add("The Color Violet");
+        artistNames.add("Tory Lanez");
+
+        songList.add("【フリーBGM】The Essence of Awakening【かっこいい・疾走感・戦闘】.mp3");
+        songNames.add("The Essence of Awakening");
+        artistNames.add("フリーBGM");
+
+        songList.add("Miley Cyrus - Wrecking Ball (Official Video).mp3");
+        songNames.add("Wrecking Ball");
+        artistNames.add("Miley Cyrus");
+
+        songList.add("Nos Astra's BGM CAMELLIA - LIGHT IT UP (nawkoir's cut).mp3");
+        songNames.add("LIGHT IT UP (nawkoir's cut)");
+        artistNames.add("CAMELLIA");
+
+        songList.add("Pierce The Veil - Pass The Nirvana (Official Music Video).mp3");
+        songNames.add("Pass The Nirvana");
+        artistNames.add("Pierce The Veil");
+
+        songList.add("Tory Lanez - Time.mp3");
+        songNames.add("Time");
+        artistNames.add("Tory Lanez");
+
+        //use index parameter
+        if (index >= 0 && index < songList.size()){
+            songTitle.setText(String.valueOf (songNames.indexOf (songList.get(index) ) ) );
+            artistName.setText(String.valueOf (artistNames.indexOf (songList.get(index))));
+        }
     }
 }
